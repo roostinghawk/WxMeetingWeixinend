@@ -9,8 +9,31 @@ Page({
   },
   //事件处理函数
   formSubmit: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+      var that = this;
+    // 获取天气信息
+    wx.request({
+        url: 'https://liuanchen.com/w/meeting',
+        method: 'POST',
+        header: {
+            'content-type': 'application/json'
+        },
+        data: {
+            meetingDate: that.getData('meetingDate'),
+            meetingTime: that.getData('meetingTime'),
+            meetingRoorm: that.getData('meetingRoom'),
+            title: that.getData('title'),
+            content: that.getData('content')
+        },
+        success: function(res) {
+        wx.navigateTo({
+            url: '../detail/detail'
+        })
+        },
+        fail: function(error) {
+        that.setData({
+                errMsg: error.errMsg
+            })
+        }
     })
   },
   onLoad: function () {
