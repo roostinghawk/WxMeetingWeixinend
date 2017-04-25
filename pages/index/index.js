@@ -4,7 +4,8 @@ var app = getApp()
 Page({
   data: {
     motto: 'Hello World',
-    userInfo: {}
+    userInfo: {},
+    weatherInfo: {}
   },
   //事件处理函数
   bindViewTap: function() {
@@ -22,5 +23,23 @@ Page({
         userInfo:userInfo
       })
     })
+
+    // 获取天气信息
+          wx.request({
+  url: 'https://liuanchen.com/w/weather', //仅为示例，并非真实的接口地址
+  header: {
+      'content-type': 'application/json'
+  },
+  success: function(res) {
+     that.setData({
+          weatherInfo: res.data
+        })
+  },
+  fail: function(error) {
+     that.setData({
+          errMsg: error.errMsg
+        })
+  }
+  })
   }
 })
