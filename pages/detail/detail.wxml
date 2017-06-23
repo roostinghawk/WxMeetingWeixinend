@@ -27,12 +27,21 @@
   </view>
 
   <!-- 与会者 -->
- <view class="section">
+ <!--<view class="section">
      <label>与会者：</label>
     <view wx:for="{{members}}">
     {{index}}: {{item.message}}
     </view>
+  </view>-->
+
+  <!-- 分享结果 -->
+ <view class="section">
+     <label>分享结果：</label>
+     <text>{{shareResult}}</text>
   </view>
 
+  <view class="section">
+   <button type="primary" bindtap="joinMeetingEvent"> 加入会议 </button>
+ </view>
 
 </view>

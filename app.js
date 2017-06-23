@@ -1,52 +1,41 @@
+var config = require('common/config')
 //app.js
 App({
+    globalData: {
+    openid: null,
+    token:null
+  },
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // login
-     wx.login({
-      success: function(res) {
-        if (res.code) {
-          console.log('获取用户Code:' + res.errMscodeg)
-          //发起网络请求
-          wx.request({
-            url: 'https://liuanchen.com/w/login',
-            data: {
-              code: res.code
-            },
-            success: function(res){
-              console.log(res);
-            }
-          })
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
-      }
-    });
+    this.login();
 
   }, 
-  getUserInfo:function(cb){
-    var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      })
-    }
-  },
-  globalData:{
-    userInfo:null
-  }
+  // 获取openid
+  login: function () {
+    var that = this;
+    //调用微信登录接口  
+    wx.login({
+      success: function (result) {
+        wx.getUserInfo({
+          success: function (res) {
+            wx.request({
+              url: config.apiList.login,
+              data: {
+                "code": result.code,
+                "encryptedData": res.encryptedData,
+                "iv": res.iv
+              },
+              method: 'POST',
+              header: {
+                'content-type': 'application/json'
+              },
+              success: function (resl) {
+                that.globalData.openid = resl.data.data.principal;
+                that.globalData.token = resl.data.data.details.token;
+              }
+            })
+          }
+        })
+      }
+    })
+   }
 })

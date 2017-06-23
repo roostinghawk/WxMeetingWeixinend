@@ -4,18 +4,24 @@ var app = getApp()
 Page({
   data: {
     motto: '会议详情',
-    currentDate: new Date(),
-    info: {}
+    meetingId: '',
+    info: {},
+    shareResult: ''
   },
   //事件处理函数
   onLoad: function(options) {
       var that = this;
-    // 获取天气信息
+      // 会议ID
+      that.setData({
+          meetingId: options.id
+      });
+      wx.showShareMenu();
+    // 获取会议详细
     wx.request({
-        url: 'https://liuanchen.com/w/meeting/' + options.id,
+        url: 'https://liuanchen.com/w/meetings/' + options.id,
         success: function(res) {
             that.setData({
-                info: res.data
+                info: res.data.data
             })
         },
         fail: function(error) {
@@ -24,5 +30,36 @@ Page({
             })
         }
     })
+  },
+  joinMeetingEvent: function(){
+    wx.request({
+                url: 'https://liuanchen.com/w/meeting/' + options.id + '/join',
+                method: 'PUT',
+                success: function(res) {
+                    // todo
+                },
+                fail: function(error) {
+                    // todo
+                }
+            })
+  },
+  onShareAppMessage: function (options) {
+      var that = this;
+    return {
+      title: '邀请会议',
+      path: '/pages/detail/detail?id=' + that.data.meetingId,
+      success: function(res) {
+        // 分享成功
+        that.setData({
+                shareResult: "分享成功！"
+            })
+      },
+      fail: function(res) {
+        // 分享失败
+        that.setData({
+                shareResult: "分享失败！"
+            })
+      }
+    }
   }
 })

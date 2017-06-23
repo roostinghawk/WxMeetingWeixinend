@@ -3,38 +3,38 @@
 
 <!-- 会议时间 -->
 <view class="section">
-  <picker mode="date" value="{{date}}" start="{{currentDate}}" end="2017-12-31" bindchange="bindDateChange">
+  <picker mode="date" value="{{meetingDate}}" start="{{currentDate}}" end="2017-12-31" bindchange="bindDateChange">
     <view class="picker">
-      日期: {{date}}
+      日期: {{meetingDate}}
     </view>
   </picker>
 
-    <picker mode="time" value="{{time}}" start="{{currentTime}}" end="23:59" bindchange="bindTimeChange">
+    <picker mode="time" value="{{meetingTime}}" start="{{currentTime}}" end="23:59" bindchange="bindTimeChange">
     <view class="picker">
-      时间: {{time}}
+      时间: {{meetingTime}}
     </view>
   </picker>
 </view>
 
 <!-- 会议室 -->
 <view class="section">
-  <picker value="{{index}}" range="{{meetingRooms}}">
+  <picker value="{{meetingRoomIndex}}" range="{{meetingRooms}}" bindchange="bindRoomChange">
     <view class="picker">
-      会议室：{{meetingRooms[index]}}
+      会议室：{{meetingRooms[meetingRoomIndex]}}
     </view>
   </picker>
 </view>
 
 <!-- 标题 -->
    <view class="section">
-    <input name="title1" placeholder="会议标题" />
+    <input name="title" placeholder="会议标题" value="{{title}}"  />
   </view>
 
   <view></view>
 
 <!-- 会议内容 -->
  <view class="section">
-    <textarea name="content" placeholder="会议内容" />
+    <textarea name="content" placeholder="会议内容" value="{{content}}" />
   </view>
 
 <view class="section">

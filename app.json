@@ -3,6 +3,7 @@
     "pages/create/create",
     "pages/index/index",
     "pages/list/list",
+    "pages/detail/detail",
     "pages/logs/logs"
   ],
   "window":{
@@ -18,7 +19,8 @@
       "text": "创建会议",
       "iconPath": "icons/meeting.jpg",
       "selectedIconPath": "icons/meeting-selected.jpg"
-    },{
+    },
+    {
       "pagePath": "pages/index/index",
       "text": "首页",
       "iconPath": "icons/home.jpg",
