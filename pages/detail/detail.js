@@ -11,6 +11,9 @@ Page({
   //事件处理函数
   onLoad: function(options) {
       var that = this;
+      if (!app.globalData.openid){
+        app.login();
+      }
       // 会议ID
       that.setData({
           meetingId: options.id
@@ -19,6 +22,9 @@ Page({
     // 获取会议详细
     wx.request({
         url: 'https://liuanchen.com/w/meetings/' + options.id,
+        header: {
+            "token":app.globalData.token
+        },
         success: function(res) {
             that.setData({
                 info: res.data.data
@@ -35,6 +41,9 @@ Page({
     wx.request({
                 url: 'https://liuanchen.com/w/meeting/' + options.id + '/join',
                 method: 'PUT',
+                header: {
+                "token": app.globalData.token
+                },
                 success: function(res) {
                     // todo
                 },

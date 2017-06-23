@@ -10,9 +10,15 @@ Page({
     meetingRoomIndex: 0,
     meetingRooms: ['会议室1', '会议室2'],
     title: '早会',
-    content: '了了'
+    content: '了了',
+    errMsg: ""
   },
-
+onLoad: function(){
+   var that = this;
+    if (!app.globalData.openid){
+      app.login();
+    }
+},
 bindDateChange: function(e) {
     this.setData({
       meetingDate: e.detail.value
@@ -36,19 +42,26 @@ bindDateChange: function(e) {
         url: 'https://liuanchen.com/w/meetings',
         method: 'POST',
         header: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            "token":app.globalData.token
         },
         data: {
             meetingDate: that.data.meetingDate,
-            //meetingTime: that.data.meetingTime,
+            meetingTime: that.data.meetingTime,
             meetingRoorm: that.data.meetingRooms[that.data.meetingRoomIndex],
             title: that.data.title,
             content: that.data.content
         },
         success: function(res) {
-        wx.navigateTo({
-            url: '../detail/detail?id=1'
-        })
+            if(res.data.status == 'success') {
+                 wx.navigateTo({
+                    url: '../detail/detail?id=' + res.data.data
+                })
+            } else {
+                this.setData({
+                    errMsg: "创建失败，请重新尝试"
+                })
+            }
         },
         fail: function(error) {
         that.setData({

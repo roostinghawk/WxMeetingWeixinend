@@ -41,5 +41,9 @@
    <button form-type="submit"> 创建会议 </button>
 </view>
 
+<view class="section error">
+    {{errMsg}}
+</view>
+
 </form>
 </view>

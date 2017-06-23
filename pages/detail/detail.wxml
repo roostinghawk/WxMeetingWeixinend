@@ -26,13 +26,13 @@
     <text>{{info.content}}</text>
   </view>
 
-  <!-- 与会者 -->
- <!--<view class="section">
+ <!--与会者 -->
+ <view class="section">
      <label>与会者：</label>
-    <view wx:for="{{members}}">
-    {{index}}: {{item.message}}
+    <view wx:for="{{info.attendees}}">
+    {{index}}: {{item}}
     </view>
-  </view>-->
+  </view>
 
   <!-- 分享结果 -->
  <view class="section">
