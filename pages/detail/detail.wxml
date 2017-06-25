@@ -30,7 +30,7 @@
  <view class="section">
      <label>与会者：</label>
     <view wx:for="{{info.attendees}}">
-    {{index}}: {{item}}
+    {{item}} &nbsp;
     </view>
   </view>
 
@@ -40,7 +40,7 @@
      <text>{{shareResult}}</text>
   </view>
 
-  <view class="section">
+  <view class="section" wx:if= "{{!info.joined}}">
    <button type="primary" bindtap="joinMeetingEvent"> 加入会议 </button>
  </view>
 
