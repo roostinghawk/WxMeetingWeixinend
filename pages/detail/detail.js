@@ -50,11 +50,11 @@ Page({
         })
   },
   // 加入会议
-  joinMeetingEvent: function(){
+  joinMeetingEvent: function(e){
       var that = this;
       that.showLoading();
       wx.request({
-            url: config.apiList.meeting + that.data.meetingId + '/join',
+            url: config.apiList.meeting + that.data.meetingId + '/join?formId=' + e.detail.formId,
             method: 'PUT',
             header: {
             "token": app.globalData.token

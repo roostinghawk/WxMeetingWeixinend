@@ -34,10 +34,11 @@
     </view>
   </view>
 
-  <view class="section" wx:if= "{{!info.joined}}">
+<form wx:if= "{{!info.joined}}" report-submit = "true">
+  <view class="section">
    <button type="submit" bindtap="joinMeetingEvent"> 加入会议 </button>
  </view>
-
+</form>
  <view class="section error">
    {{joinError}}
  </view>

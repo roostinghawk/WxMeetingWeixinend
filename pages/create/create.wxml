@@ -1,5 +1,5 @@
 <view class="container">
-<form bindsubmit="formSubmit">
+<form bindsubmit="formSubmit" report-submit = "true">
 
 <!-- 会议时间 -->
 <view class="section">

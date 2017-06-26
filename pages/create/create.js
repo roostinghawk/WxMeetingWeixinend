@@ -37,7 +37,7 @@ bindContentChange: function(e) {
     this.setData({content: e.detail.value});
 },
   // 新建会议
-  formSubmit: function() {
+  formSubmit: function(e) {
       var that = this;
       that.showLoading();
       wx.request({
@@ -50,9 +50,10 @@ bindContentChange: function(e) {
         data: {
             meetingDate: that.data.meetingDate,
             meetingTime: that.data.meetingTime,
-            meetingRoorm: that.data.meetingRooms[that.data.meetingRoomIndex],
+            meetingRoom: that.data.meetingRooms[that.data.meetingRoomIndex],
             title: that.data.title,
-            content: that.data.content
+            content: that.data.content,
+            formId: e.detail.formId
         },
         success: function(res) {
             if(res.data.status == 'success') {
