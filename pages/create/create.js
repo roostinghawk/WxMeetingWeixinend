@@ -1,17 +1,19 @@
-//index.js
 //获取应用实例
 var app = getApp()
+var config = require('../../common/config')
+
 Page({
   data: {
     motto: '预约会议',
     currentDate: new Date(),
-    meetingDate: '2017-6-15',
-    meetingTime: '14:00',
+    meetingDate: '',
+    meetingTime: '',
     meetingRoomIndex: 0,
     meetingRooms: ['会议室1', '会议室2'],
-    title: '早会',
-    content: '了了',
-    errMsg: ""
+    title: '',
+    content: '',
+    errMsg: "",
+    loading: false // 加载是否显示
   },
 onLoad: function(){
    var that = this;
@@ -20,26 +22,26 @@ onLoad: function(){
     }
 },
 bindDateChange: function(e) {
-    this.setData({
-      meetingDate: e.detail.value
-    })
-  },
-  bindTimeChange: function(e) {
-    this.setData({
-      meetingTime: e.detail.value
-    })
-  },
-  bindRoomChange: function(e) {
-      this.setData({
-          meetingRoomIndex: e.detail.value
-      })
-  },
-  //事件处理函数
+    this.setData({ meetingDate: e.detail.value})
+},
+bindTimeChange: function(e) {
+    this.setData({meetingTime: e.detail.value})
+},
+bindRoomChange: function(e) {
+    this.setData({meetingRoomIndex: e.detail.value})
+},
+bindTitleChange: function(e) {
+    this.setData({title: e.detail.value})
+},
+bindContentChange: function(e) {
+    this.setData({content: e.detail.value});
+},
+  // 新建会议
   formSubmit: function() {
       var that = this;
-    // 获取天气信息
-    wx.request({
-        url: 'https://liuanchen.com/w/meetings',
+      that.showLoading();
+      wx.request({
+        url: config.apiList.meeting,
         method: 'POST',
         header: {
             'content-type': 'application/json',
@@ -67,9 +69,16 @@ bindDateChange: function(e) {
         that.setData({
                 errMsg: error.errMsg
             })
+        },
+        compelete: function(){
+            that.hideLoading();
         }
     })
   },
-  onLoad: function () {
+  showLoading: function(){
+      this.setData({loading: true});
+   },
+   hideLoading: function(){
+      this.setData({loading: false});
   }
 })

@@ -38,4 +38,13 @@
    <button type="submit" bindtap="joinMeetingEvent"> 加入会议 </button>
  </view>
 
+ <view class="section error">
+   {{joinError}}
+ </view>
+
+ <loading hidden="{{!loading}}">
+        加载中...
+</loading>
+
+
 </view>

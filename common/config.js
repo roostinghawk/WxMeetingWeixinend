@@ -4,6 +4,7 @@
  */
 module.exports = {
     apiList: {
-        login:'https://liuanchen.com/wxApp/login'
+        login:'https://liuanchen.com/wxApp/login',
+        meeting: 'https://liuanchen.com/w/meetings/'
     }
 }

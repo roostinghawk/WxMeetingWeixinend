@@ -10,7 +10,7 @@ App({
 
   }, 
   // 获取openid
-  login: function () {
+  login: function (process) {
     var that = this;
     //调用微信登录接口  
     wx.login({
@@ -31,6 +31,9 @@ App({
               success: function (resl) {
                 that.globalData.openid = resl.data.data.principal;
                 that.globalData.token = resl.data.data.details.token;
+                if(process) {
+                    process();
+                }
               }
             })
           }

@@ -27,14 +27,14 @@
 
 <!-- 标题 -->
    <view class="section">
-    <input name="title" placeholder="会议标题" value="{{title}}"  />
+    <input name="title" placeholder="会议标题" bindinput="bindTitleChange"  />
   </view>
 
   <view></view>
 
 <!-- 会议内容 -->
  <view class="section">
-    <textarea name="content" placeholder="会议内容" value="{{content}}" />
+    <textarea name="content" placeholder="会议内容" bindinput="bindContentChange" />
   </view>
 
 <view class="section">
