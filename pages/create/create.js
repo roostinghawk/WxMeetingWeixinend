@@ -8,8 +8,9 @@ Page({
     currentDate: new Date(),
     meetingDate: '',
     meetingTime: '',
-    meetingRoomIndex: 0,
-    meetingRooms: ['会议室1', '会议室2'],
+    address: '',
+    // meetingRoomIndex: 0,
+    // meetingRooms: ['会议室1', '会议室2'],
     title: '',
     content: '',
     errMsg: "",
@@ -27,8 +28,8 @@ bindDateChange: function(e) {
 bindTimeChange: function(e) {
     this.setData({meetingTime: e.detail.value})
 },
-bindRoomChange: function(e) {
-    this.setData({meetingRoomIndex: e.detail.value})
+bindAddressChange: function(e) {
+    this.setData({address: e.detail.value})
 },
 bindTitleChange: function(e) {
     this.setData({title: e.detail.value})
@@ -50,15 +51,21 @@ bindContentChange: function(e) {
         data: {
             meetingDate: that.data.meetingDate,
             meetingTime: that.data.meetingTime,
-            meetingRoom: that.data.meetingRooms[that.data.meetingRoomIndex],
+            meetingRoom: that.data.address,
             title: that.data.title,
             content: that.data.content,
             formId: e.detail.formId
         },
         success: function(res) {
+            that.hideLoading();
             if(res.data.status == 'success') {
-                 wx.navigateTo({
-                    url: '../detail/detail?id=' + res.data.data
+                 wx.switchTab({
+                     url: '/pages/list/list',
+                     success: function(e){
+                         var page = getCurrentPages().pop();
+                         if (page == undefined || page == null) return;
+                         page.onLoad(); 
+                     }
                 })
             } else {
                 this.setData({

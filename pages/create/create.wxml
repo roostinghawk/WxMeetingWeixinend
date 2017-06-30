@@ -8,7 +8,9 @@
       日期: {{meetingDate}}
     </view>
   </picker>
+</view>
 
+<view class="section">
     <picker mode="time" value="{{meetingTime}}" start="{{currentTime}}" end="23:59" bindchange="bindTimeChange">
     <view class="picker">
       时间: {{meetingTime}}
@@ -16,21 +18,16 @@
   </picker>
 </view>
 
-<!-- 会议室 -->
-<view class="section">
-  <picker value="{{meetingRoomIndex}}" range="{{meetingRooms}}" bindchange="bindRoomChange">
-    <view class="picker">
-      会议室：{{meetingRooms[meetingRoomIndex]}}
-    </view>
-  </picker>
-</view>
+<!-- 地点 -->
+   <view class="section">
+    <input name="address" placeholder="地点" bindinput="bindAddressChange"  />
+  </view>
 
 <!-- 标题 -->
    <view class="section">
     <input name="title" placeholder="会议标题" bindinput="bindTitleChange"  />
   </view>
 
-  <view></view>
 
 <!-- 会议内容 -->
  <view class="section">
@@ -47,3 +44,7 @@
 
 </form>
 </view>
+
+<loading hidden="{{!loading}}">
+        加载中...
+</loading>

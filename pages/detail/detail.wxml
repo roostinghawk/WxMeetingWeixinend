@@ -2,6 +2,11 @@
 
 <!-- 会议时间 -->
 <view class="section">
+    <label>日期：</label>
+    <text>{{info.meetingDate}}</text>
+</view>
+
+<view class="section">
     <label>时间：</label>
     <text>{{info.meetingTime}}</text>
 </view>
@@ -29,9 +34,9 @@
  <!--与会者 -->
  <view class="section">
      <label>与会者：</label>
-    <view class="attendee" wx:for="{{info.attendees}}">
+    <label class="attendee" wx:for="{{info.attendees}}">
     {{item}}
-    </view>
+    </label>
   </view>
 
 <form wx:if= "{{!info.joined}}" report-submit = "true">
@@ -39,6 +44,11 @@
    <button type="submit" bindtap="joinMeetingEvent"> 加入会议 </button>
  </view>
 </form>
+
+<view wx:if="{{info.joined}}" class="section">
+  <button open-type="share">邀请会议</button>
+</view>
+
  <view class="section error">
    {{joinError}}
  </view>

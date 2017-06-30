@@ -9,7 +9,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "会议小帮手",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true
   },
@@ -17,7 +17,7 @@
     "list": [
            {
       "pagePath": "pages/list/list",
-      "text": "会议记录",
+      "text": "我的会议",
       "iconPath": "icons/list.jpg",
       "selectedIconPath": "icons/list-selected.jpg"
     },
@@ -26,12 +26,6 @@
       "text": "创建会议",
       "iconPath": "icons/meeting.jpg",
       "selectedIconPath": "icons/meeting-selected.jpg"
-    },
-    {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "icons/home.jpg",
-      "selectedIconPath": "icons/home-selected.jpg"
     }
    ]
   }

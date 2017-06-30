@@ -1,6 +1,16 @@
  <view class="section">
 
+
     <view wx:for="{{meetings}}">
-       <navigator url='{{"/pages/detail/detail?id=" + item.id}}' hover-class="navigator-hover">{{item.title}}</navigator>
+       <view class= "meetingSection"> 
+        <navigator class="title" url='{{"/pages/detail/detail?id=" + item.id}}' hover-class="navigator-hover">
+        <label class="title">{{item.title}} </label>
+         </navigator>
+        <label>{{item.meetingDate}} {{item.meetingTime}} {{item.meetingRoom}}</label>
+       </view>
     </view>
   </view>
+
+<loading hidden="{{!loading}}">
+        加载中...
+</loading>

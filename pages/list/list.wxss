@@ -1,0 +1,16 @@
+.meetingSection{
+    margin-left: 5px;
+    margin-top: 10px;
+    border: thin dotted;
+    background-color: lightblue
+}
+
+label{
+    font-size: small;
+    display: block
+}
+
+label.title{
+    font: bold;
+    font-size: large
+}
