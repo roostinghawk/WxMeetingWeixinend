@@ -11,7 +11,7 @@
 </view>
 
 <view class="section">
-    <picker mode="time" value="{{meetingTime}}" start="{{currentTime}}" end="23:59" bindchange="bindTimeChange">
+    <picker mode="time" value="{{meetingTime}}"  bindchange="bindTimeChange">
     <view class="picker">
       时间: {{meetingTime}}
     </view>
@@ -20,7 +20,7 @@
 
 <!-- 地点 -->
    <view class="section">
-    <input name="address" placeholder="地点" bindinput="bindAddressChange"  />
+    <input name="address" placeholder="会议地点" bindinput="bindAddressChange"  />
   </view>
 
 <!-- 标题 -->
