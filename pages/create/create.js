@@ -8,6 +8,7 @@ Page({
     currentDate: new Date(),
     meetingDate: '',
     meetingTime: '',
+    endTime: '',
     address: '',
     currentDate: '',
     currentTime: '',
@@ -27,6 +28,9 @@ bindDateChange: function(e) {
 },
 bindTimeChange: function(e) {
     this.setData({meetingTime: e.detail.value})
+},
+bindEndTimeChange: function(e) {
+    this.setData({endTime: e.detail.value})
 },
 bindAddressChange: function(e) {
     this.setData({address: e.detail.value})
@@ -51,6 +55,7 @@ bindContentChange: function(e) {
         data: {
             meetingDate: that.data.meetingDate,
             meetingTime: that.data.meetingTime,
+            endTime: that.data.endTime,
             meetingRoom: that.data.address,
             title: that.data.title,
             content: that.data.content,

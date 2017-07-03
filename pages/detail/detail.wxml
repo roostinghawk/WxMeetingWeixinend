@@ -7,8 +7,13 @@
 </view>
 
 <view class="section">
-    <label>时间：</label>
+    <label>开始时间：</label>
     <text>{{info.meetingTime}}</text>
+</view>
+
+<view class="section">
+    <label>结束时间：</label>
+    <text>{{info.endTime}}</text>
 </view>
 
 <!-- 会议室 -->
@@ -29,6 +34,11 @@
  <view class="section">
      <label>内容：</label>
     <text>{{info.content}}</text>
+  </view>
+
+  <view class="section">
+    <label>发起人：</label>
+    <text>{{info.createdBy}}</text>
   </view>
 
  <!--与会者 -->
