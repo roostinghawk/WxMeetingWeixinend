@@ -1,5 +1,5 @@
 var config = require('common/config')
-//app.js
+//app.js 
 App({
     globalData: {
     openid: null,
