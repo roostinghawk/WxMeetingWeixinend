@@ -39,9 +39,9 @@
     </label>
   </view>
 
-<form wx:if= "{{!info.joined}}" report-submit = "true">
+<form wx:if= "{{!info.joined}}" report-submit = "true" bindsubmit="joinMeetingEvent">
   <view class="section">
-   <button type="submit" bindtap="joinMeetingEvent"> 加入会议 </button>
+   <button type="submit"> 加入会议 </button>
  </view>
 </form>
 
