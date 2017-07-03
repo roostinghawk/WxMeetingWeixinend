@@ -76,6 +76,9 @@ bindContentChange: function(e) {
   formSubmit: function(e) {
       var that = this;
       that.showLoading();
+      that.setData({
+            errMsg: ''
+      })
       wx.request({
         url: config.apiList.meeting,
         method: 'POST',
@@ -105,13 +108,13 @@ bindContentChange: function(e) {
                 })
             } else {
                 that.setData({
-                    errMsg: res.data.errMsg
+                    errMsg: res.data.data.errmsg
                 })
             }
         },
         fail: function(error) {
         that.setData({
-                errMsg: error.errMsg
+                errMsg: error.errmsg
             })
         },
         compelete: function(){

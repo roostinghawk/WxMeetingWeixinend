@@ -1,65 +1,65 @@
 <view class="container">
 
 <!-- 会议时间 -->
-<view class="section">
-    <label>日期：</label>
+<view class="row">
+    <label>会议日期</label>
     <text>{{info.meetingDate}}</text>
 </view>
 
-<view class="section">
-    <label>开始时间：</label>
+<view class="row">
+    <label>开始时间</label>
     <text>{{info.meetingTime}}</text>
 </view>
 
-<view class="section">
-    <label>结束时间：</label>
+<view class="row">
+    <label>结束时间</label>
     <text>{{info.endTime}}</text>
 </view>
 
 <!-- 会议室 -->
-<view class="section">
-    <label>会议室：</label>
+<view class="row">
+    <label>会议地点</label>
     <text>{{info.meetingRoom}}</text>
 </view>
 
 <!-- 标题 -->
-   <view class="section">
-    <label>标题：</label>
+   <view class="row">
+    <label>会议主题</label>
     <text>{{info.title}}</text>
   </view>
 
   <view></view>
 
 <!-- 会议内容 -->
- <view class="section">
-     <label>内容：</label>
+ <view class="row">
+     <label>会议内容</label>
     <text>{{info.content}}</text>
   </view>
 
-  <view class="section">
-    <label>发起人：</label>
+  <view class="row">
+    <label>发起人</label>
     <text>{{info.createdBy}}</text>
   </view>
 
  <!--与会者 -->
- <view class="section">
-     <label>与会者：</label>
-    <label class="attendee" wx:for="{{info.attendees}}">
-    {{item}}
-    </label>
+ <view class="row">
+     <label>与会者</label>
+    <view wx:for="{{info.attendees}}">
+        <text class="attendee">{{item}} </text>
+    </view>
   </view>
 
 <form wx:if= "{{!info.joined}}" report-submit = "true" bindsubmit="joinMeetingEvent">
-  <view class="section">
-   <button type="submit"> 加入会议 </button>
+  <view class="btn-section">
+   <button type="submit" type="primary"> 加入会议 </button>
  </view>
 </form>
 
-<view wx:if="{{info.joined}}" class="section">
-  <button open-type="share">邀请会议</button>
+<view wx:if="{{info.joined}}" class="btn-section">
+  <button open-type="share" type="primary">邀请会议</button>
 </view>
 
- <view class="section error">
+ <view class="error-section">
    {{joinError}}
  </view>
 

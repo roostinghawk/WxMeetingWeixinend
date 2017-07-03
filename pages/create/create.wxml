@@ -48,7 +48,7 @@
     <input name="content"  bindinput="bindContentChange" />
   </view>
 
-<view class="section error">
+<view class="error-section">
     {{errMsg}}
 </view>
 
