@@ -4,7 +4,7 @@
 <!-- 会议时间 -->
 <view class="row">
   <label>会议日期</label>
-  <picker mode="date" value="{{meetingDate}}" start="{{currentDate}}" bindchange="bindDateChange">
+  <picker mode="date" value="{{meetingDate}}" start="{{currentDate}}" bindchange="bindDateChange" class="picker">
     <view class="picker">
        {{meetingDate}}
     </view>
@@ -13,7 +13,7 @@
 
 <view class="row">
     <label>开始时间</label>
-    <picker mode="time" value="{{meetingTime}}"  bindchange="bindTimeChange">
+    <picker mode="time" value="{{meetingTime}}"  bindchange="bindTimeChange" class="picker">
     <view class="picker">
        {{meetingTime}}
     </view>
@@ -22,7 +22,7 @@
 
 <view class="row">
     <label>结束时间</label>
-    <picker mode="time" value="{{endTime}}"  bindchange="bindEndTimeChange">
+    <picker mode="time" value="{{endTime}}"  bindchange="bindEndTimeChange" class="picker">
     <view class="picker">
        {{endTime}}
     </view>
@@ -32,7 +32,7 @@
 <!-- 地点 -->
 <view class="row">
     <label>会议地点</label>
-    <input name="address" bindinput="bindAddressChange" maxlength="30"  />
+    <input name="address" bindinput="bindAddressChange" maxlength="30" disabled='true' value ="{{address}}" />
   </view>
 
 <!-- 标题 -->

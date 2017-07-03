@@ -1,8 +1,7 @@
 .meetingSection{
     margin-left: 5px;
     margin-top: 10px;
-    border: thin dotted;
-    background-color: lightblue
+    border-bottom: 1rpx solid #eee;
 }
 
 label{
@@ -11,6 +10,28 @@ label{
 }
 
 label.title{
-    font: bold;
+    /*font: bold;*/
     font-size: large
+}
+
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 20px;
 }
