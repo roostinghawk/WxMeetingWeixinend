@@ -2,52 +2,58 @@
 <form bindsubmit="formSubmit" report-submit = "true">
 
 <!-- 会议时间 -->
-<view class="section">
-  <picker mode="date" value="{{meetingDate}}" start="{{currentDate}}" end="2017-12-31" bindchange="bindDateChange">
+<view class="row">
+  <label>会议日期</label>
+  <picker mode="date" value="{{meetingDate}}" start="{{currentDate}}" bindchange="bindDateChange">
     <view class="picker">
-      日期: {{meetingDate}}
+       {{meetingDate}}
     </view>
   </picker>
 </view>
 
-<view class="section">
+<view class="row">
+    <label>开始时间</label>
     <picker mode="time" value="{{meetingTime}}"  bindchange="bindTimeChange">
     <view class="picker">
-      开始时间: {{meetingTime}}
+       {{meetingTime}}
     </view>
   </picker>
 </view>
 
-<view class="section">
+<view class="row">
+    <label>结束时间</label>
     <picker mode="time" value="{{endTime}}"  bindchange="bindEndTimeChange">
     <view class="picker">
-      结束时间: {{endTime}}
+       {{endTime}}
     </view>
   </picker>
 </view>
 
 <!-- 地点 -->
-   <view class="section">
-    <input name="address" placeholder="会议地点" bindinput="bindAddressChange"  />
+<view class="row">
+    <label>会议地点</label>
+    <input name="address" bindinput="bindAddressChange" maxlength="30"  />
   </view>
 
 <!-- 标题 -->
-   <view class="section">
-    <input name="title" placeholder="会议标题" bindinput="bindTitleChange"  />
+   <view class="row">
+    <label>会议主题</label>
+    <input name="title"  bindinput="bindTitleChange"  />
   </view>
 
 
 <!-- 会议内容 -->
- <view class="section">
-    <textarea name="content" placeholder="会议内容" bindinput="bindContentChange" />
+ <view class="row">
+    <label>会议内容</label>
+    <input name="content"  bindinput="bindContentChange" />
   </view>
-
-<view class="section">
-   <button form-type="submit"> 创建会议 </button>
-</view>
 
 <view class="section error">
     {{errMsg}}
+</view>
+
+<view class="btn-section">
+   <button form-type="submit" type="primary"> 创建会议 </button>
 </view>
 
 </form>
