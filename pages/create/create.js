@@ -104,8 +104,8 @@ bindContentChange: function(e) {
                      }
                 })
             } else {
-                this.setData({
-                    errMsg: "创建失败，请重新尝试"
+                that.setData({
+                    errMsg: res.data.errMsg
                 })
             }
         },

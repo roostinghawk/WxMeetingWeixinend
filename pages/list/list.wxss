@@ -1,6 +1,7 @@
 .meetingSection{
     margin-left: 5px;
     margin-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1rpx solid #eee;
 }
 
@@ -11,7 +12,8 @@ label{
 
 label.title{
     /*font: bold;*/
-    font-size: large
+    font-size: large;
+    color: deepskyblue;
 }
 
 /**index.wxss**/
