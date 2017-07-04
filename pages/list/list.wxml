@@ -1,14 +1,25 @@
- <view class="section">
 
+<!--<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+</view>-->
 
+ <view class="section" wx:if="{{meetings.length > 0}}">
     <view wx:for="{{meetings}}">
        <view class= "meetingSection"> 
         <navigator class="title" url='{{"/pages/detail/detail?id=" + item.id}}' hover-class="navigator-hover">
-        <label class="title">{{item.title}} </label>
+        <label class="title"> {{item.meetingDate}} {{item.meetingTime}} - {{item.endTime}}</label>
+        <label>会议主题：{{item.title}}</label>
+        <label>发起人:{{item.createdBy}}</label>
          </navigator>
-        <label>{{item.meetingDate}} {{item.meetingTime}} {{item.meetingRoom}}</label>
        </view>
     </view>
+  </view>
+
+  <view class="section" wx:if="{{meetings.length == 0}}">
+   <label>暂无预约会议</label>
   </view>
 
 <loading hidden="{{!loading}}">

@@ -9,7 +9,7 @@ Page({
     meetingDate: '',
     meetingTime: '',
     endTime: '',
-    address: '',
+    address: 'Zoom',
     currentDate: '',
     currentTime: '',
     title: '',
@@ -22,6 +22,37 @@ onLoad: function(){
     if (!app.globalData.openid){
       app.login();
     }
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    var hh = today.getHours() + 1;
+    var nextHour = hh + 1;
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+
+    if(hh < 10) {
+      hh = '0' + hh;
+    }
+
+    if (nextHour < 10) {
+      nextHour = '0' + nextHour;
+    }
+
+    that.setData({
+      meetingDate:  yyyy + '-' + mm + '-' + dd,
+      currentDate:  yyyy + '-' + mm + '-' + dd,
+      meetingTime: hh + ':00',
+      startTime: hh + ':00',
+      endTime: nextHour + ':00'
+    });
 },
 bindDateChange: function(e) {
     this.setData({ meetingDate: e.detail.value})
@@ -45,6 +76,9 @@ bindContentChange: function(e) {
   formSubmit: function(e) {
       var that = this;
       that.showLoading();
+      that.setData({
+            errMsg: ''
+      })
       wx.request({
         url: config.apiList.meeting,
         method: 'POST',
@@ -73,14 +107,14 @@ bindContentChange: function(e) {
                      }
                 })
             } else {
-                this.setData({
-                    errMsg: "创建失败，请重新尝试"
+                that.setData({
+                    errMsg: res.data.data.errmsg
                 })
             }
         },
         fail: function(error) {
         that.setData({
-                errMsg: error.errMsg
+                errMsg: error.errmsg
             })
         },
         compelete: function(){

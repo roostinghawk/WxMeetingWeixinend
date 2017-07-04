@@ -1,3 +1,17 @@
-.attendee{
-    margin-right: 2px
+text {
+    margin-left: 50rpx;
+    margin-top: 3px;
+}
+
+.error-section {
+    color: red;
+    margin-top: 10px;
+}
+
+label {
+    width: 200rpx;
+}
+
+text.attendee{
+    padding-right: 10rpx;
 }

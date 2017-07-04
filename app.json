@@ -15,18 +15,18 @@
   },
   "tabBar": {
     "list": [
-           {
-      "pagePath": "pages/list/list",
-      "text": "我的会议",
-      "iconPath": "icons/list.jpg",
-      "selectedIconPath": "icons/list-selected.jpg"
-    },
-          {
-      "pagePath": "pages/create/create",
-      "text": "创建会议",
-      "iconPath": "icons/meeting.jpg",
-      "selectedIconPath": "icons/meeting-selected.jpg"
-    }
+      {
+        "pagePath": "pages/list/list",
+        "text": "会议一览",
+        "iconPath": "icons/list.jpg",
+        "selectedIconPath": "icons/list-selected.jpg"
+      },
+      {
+        "pagePath": "pages/create/create",
+        "text": "创建会议",
+        "iconPath": "icons/meeting.jpg",
+        "selectedIconPath": "icons/meeting-selected.jpg"
+      }
    ]
   }
 }

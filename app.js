@@ -3,12 +3,14 @@ var config = require('common/config')
 App({
     globalData: {
     openid: null,
-    token:null
+    token:null,
+    userInfo: {}
   },
   onLaunch: function () {
     this.login();
 
   }, 
+
   // 获取openid
   login: function (process) {
     var that = this;
@@ -17,6 +19,7 @@ App({
       success: function (result) {
         wx.getUserInfo({
           success: function (res) {
+            that.globalData.userInfo = res.userInfo;
             wx.request({
               url: config.apiList.login,
               data: {

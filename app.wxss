@@ -24,6 +24,8 @@ body {
 
 .btn-section {
   margin-top: 30px;
+  width: 90%;
+  text-align:center;
 }
 
 .row{
@@ -43,6 +45,13 @@ body {
 input{
     text-align:left;
     margin-left: 50rpx;
+    margin-top: 1px;
+}
+
+.picker {
+   margin-left: 20rpx;
+   margin-top: 3px;
+   text-align:left;
 }
 
 label{
@@ -52,4 +61,7 @@ label{
 
 form {
   margin-left: 5px;
+}
+.section {
+  margin-left: 60rpx;
 }

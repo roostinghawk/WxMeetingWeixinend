@@ -4,16 +4,23 @@ Page({
     data: {
     motto: '会议记录',
     meetings: {},
-    loading: false // 加载是否显示
+    loading: false, // 加载是否显示
+    userInfo: {}
   },
   //事件处理函数
   onLoad: function(options) {
       var that = this;
+
       if (!app.globalData.openid){
         app.login(this.initData);
       } else {
           this.initData();
       }
+
+      that.setData({
+        userInfo: app.globalData.userInfo
+      })
+      
   },
   initData: function() {
       var that = this;
