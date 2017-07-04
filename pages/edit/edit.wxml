@@ -38,20 +38,20 @@
 <!-- 标题 -->
    <view class="row">
     <label>会议主题</label>
-    <input name="title"  bindinput="bindTitleChange" maxlength="50"  />
+    <input name="title"  bindinput="bindTitleChange"  maxlength="30" value="{{title}}" />
   </view>
 
 
 <!-- 会议内容 -->
  <view class="row">
     <label>会议内容</label>
-    <input name="content"  bindinput="bindContentChange" maxlength="100" />
+    <input name="content"  bindinput="bindContentChange" maxlength="100" value="{{content}}" />
   </view>
 
-    <!-- 发起人 -->
+<!-- 发起人 -->
  <view class="row">
     <label>发起人</label>
-    <input name="creatorName"  bindinput="bindCreatorNameChange" maxlength="5" />
+    <input name="creatorName"  bindinput="bindCreatorNameChange" maxlength="5" value="{{creatorName}}" />
   </view>
 
 <view class="error-section">
@@ -59,7 +59,7 @@
 </view>
 
 <view class="btn-section">
-   <button form-type="submit" type="primary"> 创建会议 </button>
+   <button form-type="submit" type="primary"> 保存会议 </button>
 </view>
 
 </form>

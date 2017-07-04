@@ -6,7 +6,8 @@ Page({
     meetingId: '',
     info: {},
     shareResult: '',
-    joinError: '',
+    errMsg: '',
+    hiddenModal: true,
     loading: false // 加载是否显示
   },
   //事件处理函数
@@ -24,7 +25,15 @@ Page({
       wx.showShareMenu();
  
   },
-  /// 初始化
+  bindDeleteTapEvent: function(){
+    this.setData({ hiddenModal: false});
+  },
+  bindEditTapEvent: function() {
+    wx.navigateTo({
+      url: '/pages/edit/edit?id=' + this.data.meetingId
+    });
+  },
+  // 初始化
   initData: function(){
       var that = this;
       that.showLoading();
@@ -64,7 +73,7 @@ Page({
                 that.initData();
             },
             fail: function(error) {
-                that.setData({joinError: "加入失败，请重新尝试"})
+                that.setData({errMsg: "加入失败，请重新尝试"})
             },
             complete: function() {
                 that.hideLoading();
@@ -85,6 +94,35 @@ Page({
         that.setData({shareResult: "分享失败！"})
       }
     }
+  },
+  cancelDelete: function(){
+    this.setData({ hiddenModal: true});
+  },
+  confirmDelete: function(){
+    var that = this;
+    wx.request({
+      url: config.apiList.meeting + that.data.meetingId,
+      method: 'DELETE',
+      header: {
+        "token": app.globalData.token
+      },
+      success: function(res) {
+        wx.switchTab({
+          url: '/pages/list/list',
+          success: function (e) {
+            var page = getCurrentPages().pop();
+            if (page == undefined || page == null) return;
+            page.onLoad();
+          }
+        })
+      },
+      fail: function(error) {
+        that.setData({ errMsg: error});
+      },
+      complete: function(){
+        that.setData({hiddenModal: true});
+      }
+    })
   },
   showLoading: function(){
       this.setData({loading: true});
