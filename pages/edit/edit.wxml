@@ -43,10 +43,10 @@
 
 
 <!-- 会议内容 -->
- <view class="row">
+ <!--<view class="row">
     <label>会议内容</label>
     <input name="content"  bindinput="bindContentChange" maxlength="100" value="{{content}}" />
-  </view>
+  </view>-->
 
 <!-- 发起人 -->
  <view class="row">
