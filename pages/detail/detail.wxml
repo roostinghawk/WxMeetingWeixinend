@@ -51,7 +51,7 @@
 
 <form wx:if= "{{!info.joined}}" report-submit = "true" bindsubmit="joinMeetingEvent">
   <view class="btn-section">
-   <button type="submit" type="primary"> 加入会议 </button>
+   <button form-type="submit" type="primary"> 加入会议 </button>
  </view>
 </form>
 
