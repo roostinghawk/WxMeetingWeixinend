@@ -23,6 +23,9 @@ Page({
       })
       
   },
+  onPullDownRefresh: function(){
+    this.onLoad();
+  },
   initData: function() {
       var that = this;
       // 获取会议一览
