@@ -17,6 +17,7 @@ Page({
     content: '',
     creatorName: '',
     errMsg: "",
+    hiddenModal: true,
     loading: false // 加载是否显示
   },
   onLoad: function (options) {
@@ -117,12 +118,14 @@ Page({
           })
         } else {
           that.setData({
+            hiddenModal: false,
             errMsg: res.data.data.errmsg
           })
         }
       },
       fail: function (error) {
         that.setData({
+          hiddenModal: false,
           errMsg: error.errmsg
         })
       },
@@ -130,6 +133,9 @@ Page({
         that.hideLoading();
       }
     })
+  },
+  confirmModal: function () {
+    this.setData({ hiddenModal: true });
   },
   showLoading: function () {
     this.setData({ loading: true });

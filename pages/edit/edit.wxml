@@ -54,9 +54,6 @@
     <input name="creatorName"  bindinput="bindCreatorNameChange" maxlength="5" value="{{creatorName}}" />
   </view>
 
-<view class="error-section">
-    {{errMsg}}
-</view>
 
 <view class="btn-section">
    <button form-type="submit" type="primary"> 保存会议 </button>
@@ -68,3 +65,8 @@
 <loading hidden="{{!loading}}">
         加载中...
 </loading>
+
+  <modal hidden="{{hiddenModal}}" title="" confirm-text="确定"  no-cancel="true}
+     bindconfirm="confirmModal" >
+     <label> {{errMsg}} </label>
+</modal>
