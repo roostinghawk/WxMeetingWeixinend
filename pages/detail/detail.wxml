@@ -44,9 +44,12 @@
  <!--与会者 -->
  <view class="row">
      <label>与会者</label>
-    <view wx:for="{{info.attendees}}">
-        <text class="attendee">{{item}} </text>
-    </view>
+     <view class="attendee">
+       <laber wx:for="{{info.attendees}}">
+        {{item}}\r\n\r\n
+    </laber>
+     </view>
+  
   </view>
 
 <form wx:if= "{{!info.joined}}" report-submit = "true" bindsubmit="joinMeetingEvent">
@@ -55,7 +58,7 @@
  </view>
 </form>
 
-<view wx:if="{{info.joined}}" class="section">
+<view wx:if="{{info.joined}}" class="btn-section">
   <button open-type="share" type="primary">邀请会议</button>
   <button wx:if="{{info.creator}}" bindtap="bindEditTapEvent">编辑会议</button>
   <button wx:if="{{info.creator}}" type="warn" bindtap="bindDeleteTapEvent">删除会议</button>

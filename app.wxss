@@ -30,11 +30,10 @@ body {
 
 .row{
   height: 40px;
-  margin-top: 5px;
   width: 100%;
   display: flex;
+  align-items: center;
   background-color: #fff; 
-  margin: 5px auto 0;
   border-bottom: 1rpx solid #eee;
 }
 
@@ -43,15 +42,17 @@ body {
 }
 
 input{
-    text-align:left;
-    margin-left: 50rpx;
-    margin-top: 1px;
+    text-align:right;
+    margin-right: 10px;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
 
 .picker {
-   margin-left: 20rpx;
-   margin-top: 3px;
-   text-align:left;
+    margin-right: 5px;
+   text-align:right;
+   justify-content: flex-end;
+      flex-grow: 1;
 }
 
 label{
@@ -67,5 +68,7 @@ form {
 }
 
  button {
+  margin-left: 20px;
   margin-top: 60rpx;
+  text-align:center;
 }
