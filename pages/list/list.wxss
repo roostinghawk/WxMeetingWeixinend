@@ -37,3 +37,14 @@ label.title{
 .usermotto {
   margin-top: 20px;
 }
+
+.arrow{
+  width: 25px;
+  height: 5px;
+  padding-bottom: 3px;
+}
+.meetingArrow{
+    margin-left: 0px;
+    margin-top: 1px;
+    padding-bottom: 3px;
+}

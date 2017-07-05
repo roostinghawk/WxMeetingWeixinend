@@ -8,7 +8,7 @@
   /*padding: 100rpx 0;*/
   box-sizing: border-box;
   margin-top: 20px;
-  margin-left: 50rpx;
+  margin-left: 20rpx;
 } 
 
 page {
@@ -63,7 +63,7 @@ form {
   margin-left: 5px;
 }
 .section {
-  margin-left: 60rpx;
+  margin-left: 50rpx;
 }
 
  button {

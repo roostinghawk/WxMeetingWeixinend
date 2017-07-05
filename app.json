@@ -19,14 +19,14 @@
       {
         "pagePath": "pages/list/list",
         "text": "会议一览",
-        "iconPath": "icons/list.jpg",
-        "selectedIconPath": "icons/list-selected.jpg"
+        "iconPath": "icons/list.png",
+        "selectedIconPath": "icons/list-selected.png"
       },
       {
         "pagePath": "pages/create/create",
         "text": "创建会议",
-        "iconPath": "icons/meeting.jpg",
-        "selectedIconPath": "icons/meeting-selected.jpg"
+        "iconPath": "icons/meeting.png",
+        "selectedIconPath": "icons/meeting-selected.png"
       }
    ]
   }

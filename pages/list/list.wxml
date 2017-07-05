@@ -11,9 +11,9 @@
        <view class= "meetingSection"> 
         <navigator class="title" url='{{"/pages/detail/detail?id=" + item.id}}' hover-class="navigator-hover">
         <label class="title"> {{item.meetingDate}} </label>
-        <label>会议时间：{{item.meetingTime}} - {{item.endTime}}</label>
-        <label>会议主题：{{item.title}}</label>
-        <label>发起人:{{item.createdBy}}</label>
+        <label class="meetingArrow">会议时间：{{item.meetingTime}} \r\n <image class="arrow" src="/icons/arrow.png"></image> {{item.endTime}}</label>
+        <label class="meetingArrow">会议主题：{{item.title}}</label>
+        <label class="meetingArrow">发起人:   \r\n\r\n\r\n\r\n\r\n\r\n{{item.createdBy}}</label>
          </navigator>
        </view>
     </view>
