@@ -11,6 +11,7 @@ Page({
   onLoad: function(options) {
       var that = this;
 
+      that.showLoading();
       if (!app.globalData.openid){
         app.login(this.initData);
       } else {
@@ -24,7 +25,6 @@ Page({
   },
   initData: function() {
       var that = this;
-      that.showLoading();
       // 获取会议一览
       wx.request({
         url: config.apiList.futureMeeting,
