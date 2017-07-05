@@ -74,7 +74,7 @@ bindContentChange: function(e) {
     this.setData({content: e.detail.value});
 },
   bindCreatorNameChange: function(e) {
-    this.setData({creatorName: e.deail.value});
+    this.setData({ creatorName: e.detail.value});
   },
   // 新建会议
   formSubmit: function(e) {
@@ -94,6 +94,7 @@ bindContentChange: function(e) {
             meetingRoom: that.data.address,
             title: that.data.title,
             content: that.data.content,
+            creatorName: that.data.creatorName,
             formId: e.detail.formId
         },
         success: function(res) {

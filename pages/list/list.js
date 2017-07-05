@@ -27,7 +27,7 @@ Page({
       that.showLoading();
       // 获取会议一览
       wx.request({
-          url: config.apiList.meeting,
+        url: config.apiList.futureMeeting,
           header: {
               "token":app.globalData.token
           },
