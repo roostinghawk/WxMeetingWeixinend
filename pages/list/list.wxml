@@ -13,7 +13,7 @@
         <label class="title"> {{item.meetingDate}} </label>
         <label class="meetingArrow">会议时间：{{item.meetingTime}} \r\n <image class="arrow" src="/icons/arrow.png"></image> {{item.endTime}}</label>
         <label class="meetingArrow">会议主题：{{item.title}}</label>
-        <label class="meetingArrow">发起人:   \r\n\r\n\r\n\r\n\r\n\r\n{{item.createdBy}}</label>
+        <label class="meetingArrow">发起人员：{{item.createdBy}}</label>
          </navigator>
        </view>
     </view>

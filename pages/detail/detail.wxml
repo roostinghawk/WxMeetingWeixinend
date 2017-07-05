@@ -37,16 +37,16 @@
   </view>-->
 
   <view class="row">
-    <label>发起人</label>
+    <label>发起人员</label>
     <text>{{info.createdBy}}</text>
   </view>
 
  <!--与会者 -->
  <view class="row">
-     <label>与会者</label>
+     <label>参加人员</label>
      <view class="attendee">
        <laber wx:for="{{info.attendees}}">
-        {{item}}\r\n\r\n
+        \r\n\r\n{{item}}
     </laber>
      </view>
   

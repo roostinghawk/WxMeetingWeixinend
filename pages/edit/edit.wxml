@@ -50,7 +50,7 @@
 
 <!-- 发起人 -->
  <view class="row">
-    <label>发起人</label>
+    <label>发起人员</label>
     <input name="creatorName"  bindinput="bindCreatorNameChange" maxlength="5" value="{{creatorName}}" />
   </view>
 
