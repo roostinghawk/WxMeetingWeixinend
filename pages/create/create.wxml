@@ -43,20 +43,16 @@
 
 
 <!-- 会议内容 -->
- <view class="row">
+ <!--<view class="row">
     <label>会议内容</label>
     <input name="content"  bindinput="bindContentChange" maxlength="100" />
-  </view>
+  </view>-->
 
     <!-- 发起人 -->
  <view class="row">
     <label>发起人</label>
-    <input name="creatorName"  bindinput="bindCreatorNameChange" maxlength="5" />
+    <input name="creatorName"  bindinput="bindCreatorNameChange" value="{{creatorName}}" maxlength="5" />
   </view>
-
-<view class="error-section">
-    {{errMsg}}
-</view>
 
 <view class="btn-section">
    <button form-type="submit" type="primary"> 创建会议 </button>
@@ -68,3 +64,8 @@
 <loading hidden="{{!loading}}">
         加载中...
 </loading>
+
+  <modal hidden="{{hiddenModal}}" title="" confirm-text="确定"  no-cancel="true}
+     bindconfirm="confirmModal" >
+     <label> {{errMsg}} </label>
+</modal>

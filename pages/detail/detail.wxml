@@ -31,10 +31,10 @@
   <view></view>
 
 <!-- 会议内容 -->
- <view class="row">
+ <!--<view class="row">
      <label>会议内容</label>
     <text>{{info.content}}</text>
-  </view>
+  </view>-->
 
   <view class="row">
     <label>发起人</label>
