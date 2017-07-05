@@ -38,7 +38,7 @@
 <!-- 标题 -->
    <view class="row">
     <label>会议主题</label>
-    <input name="title"  bindinput="bindTitleChange" maxlength="50"  />
+    <input name="title" placeholder="请输入主题"  bindinput="bindTitleChange" maxlength="50"  />
   </view>
 
 
@@ -51,7 +51,7 @@
     <!-- 发起人 -->
  <view class="row">
     <label>发起人</label>
-    <input name="creatorName"  bindinput="bindCreatorNameChange" value="{{creatorName}}" maxlength="5" />
+    <input name="creatorName" placeholder="请输入姓名"   bindinput="bindCreatorNameChange" value="{{creatorName}}" maxlength="5" />
   </view>
 
 <view class="btn-section">
