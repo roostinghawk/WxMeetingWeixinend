@@ -55,17 +55,24 @@
  </view>
 </form>
 
-<view wx:if="{{info.joined}}" class="btn-section">
+<view wx:if="{{info.joined}}" class="section">
   <button open-type="share" type="primary">邀请会议</button>
+  <button wx:if="{{info.creator}}" bindtap="bindEditTapEvent">编辑会议</button>
+  <button wx:if="{{info.creator}}" type="warn" bindtap="bindDeleteTapEvent">删除会议</button>
 </view>
 
  <view class="error-section">
-   {{joinError}}
+   {{errMsg}}
  </view>
 
  <loading hidden="{{!loading}}">
         加载中...
 </loading>
+
+  <modal hidden="{{hiddenModal}}" title="删除会议" confirm-text="确定" cancel-text="取消" 
+    bindcancel="cancelDelete" bindconfirm="confirmDelete" >
+    确定删除此会议吗？
+</modal>
 
 
 </view>

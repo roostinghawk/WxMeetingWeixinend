@@ -14,10 +14,11 @@ Page({
     currentTime: '',
     title: '',
     content: '',
+    creatorName: '',
     errMsg: "",
     loading: false // 加载是否显示
   },
-onLoad: function(){
+  onLoad: function (options){
    var that = this;
     if (!app.globalData.openid){
       app.login();
@@ -72,13 +73,13 @@ bindTitleChange: function(e) {
 bindContentChange: function(e) {
     this.setData({content: e.detail.value});
 },
+  bindCreatorNameChange: function(e) {
+    this.setData({creatorName: e.deail.value});
+  },
   // 新建会议
   formSubmit: function(e) {
       var that = this;
       that.showLoading();
-      that.setData({
-            errMsg: ''
-      })
       wx.request({
         url: config.apiList.meeting,
         method: 'POST',
@@ -108,7 +109,7 @@ bindContentChange: function(e) {
                 })
             } else {
                 that.setData({
-                    errMsg: res.data.data.errmsg
+                  errMsg: res.data.data.errmsg
                 })
             }
         },
