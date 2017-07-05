@@ -47,7 +47,7 @@ Page({
     this.setData({ content: e.detail.value });
   },
   bindCreatorNameChange: function (e) {
-    this.setData({ creatorName: e.deail.value });
+    this.setData({ creatorName: e.detail.value });
   },
 
   // 初始化
@@ -101,6 +101,7 @@ Page({
         meetingRoom: that.data.address,
         title: that.data.title,
         content: that.data.content,
+        creatorName: that.data.creatorName,
         formId: e.detail.formId
       },
       success: function (res) {
