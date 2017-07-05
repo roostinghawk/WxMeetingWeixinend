@@ -48,3 +48,14 @@ label.title{
     margin-top: 1px;
     padding-bottom: 3px;
 }
+.noneSection{
+  display: flex;
+  flex-direction: column;
+  margin-top: 200rpx;
+  align-items: center;
+  justify-content: center;
+}
+.meetingNoneIcon{
+  width: 200rpx;
+  height: 200rpx;
+}
