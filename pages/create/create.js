@@ -15,7 +15,8 @@ Page({
     title: '',
     content: '',
     creatorName: '',
-    errMsg: "",
+    errMsg: '',
+    hiddenModal: true,
     loading: false // 加载是否显示
   },
   onLoad: function (options){
@@ -54,6 +55,21 @@ Page({
       startTime: hh + ':00',
       endTime: nextHour + ':00'
     });
+
+    // 获取发起人姓名
+    wx.request({
+      url: config.apiList.getName,
+      header: {
+        "token": app.globalData.token
+      },
+      success: function (res) {
+        that.setData({
+          creatorName: res.data
+        })
+      },
+      fail: function (error) {
+      }
+    })
 },
 bindDateChange: function(e) {
     this.setData({ meetingDate: e.detail.value})
@@ -110,6 +126,7 @@ bindContentChange: function(e) {
                 })
             } else {
                 that.setData({
+                  hiddenModal: false,
                   errMsg: res.data.data.errmsg
                 })
             }
@@ -123,6 +140,9 @@ bindContentChange: function(e) {
             that.hideLoading();
         }
     })
+  },
+  confirmModal: function(){
+    this.setData({ hiddenModal: true});
   },
   showLoading: function(){
       this.setData({loading: true});
