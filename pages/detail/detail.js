@@ -13,6 +13,7 @@ Page({
   //事件处理函数
   onLoad: function(options) {
       var that = this;
+      that.showLoading();
          // 会议ID
       that.setData({
           meetingId: options.id
@@ -36,7 +37,6 @@ Page({
   // 初始化
   initData: function(){
       var that = this;
-      that.showLoading();
       // 获取会议详细
       wx.request({
             url: config.apiList.meeting + that.data.meetingId,
