@@ -20,6 +20,19 @@ label {
     justify-content: flex-end;
     flex-grow: 1;
     padding-right: 1rpx;
+    flex-wrap: wrap;
+    width: 70%;
+}
+.attendee-label{
+   width: 30%;
+}
+.row-attendee{
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff; 
+  border-bottom: 1rpx solid #eee;
 }
 
 

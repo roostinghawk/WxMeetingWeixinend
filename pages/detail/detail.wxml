@@ -42,12 +42,12 @@
   </view>
 
  <!--与会者 -->
- <view class="row">
-     <label>参加人员</label>
+ <view class="row-attendee">
+     <label class="attendee-label">参加人员</label>
      <view class="attendee">
-       <laber wx:for="{{info.attendees}}">
+       <label wx:for="{{info.attendees}}">
         \r\n\r\n{{item}}
-    </laber>
+       </label>
      </view>
   
   </view>
