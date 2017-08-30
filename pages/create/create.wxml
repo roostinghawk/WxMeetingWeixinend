@@ -30,9 +30,18 @@
 </view>
 
 <!-- 地点 -->
-<view class="row">
+<!-- <view class="row">
     <label>会议地点</label>
     <input name="address" bindinput="bindAddressChange" maxlength="30" disabled='true' value ="{{address}}" />
+  </view> -->
+
+<view class="row">
+  <label>会议地点</label>
+  <picker bindchange="bindAddressChange" value="{{addressIndex}}" range="{{addressArray}}" class="picker">
+    <view class="picker">
+      {{addressArray[addressIndex]}}
+    </view>
+  </picker>
   </view>
 
 <!-- 标题 -->

@@ -9,7 +9,9 @@ Page({
     meetingDate: '',
     meetingTime: '',
     endTime: '',
-    address: 'Zoom',
+    address: 'Zoom-139',
+    addressArray: ['Zoom-139', 'Zoom-admin'],
+    addressIndex: 0, 
     currentDate: '',
     currentTime: '',
     title: '',
@@ -81,7 +83,8 @@ bindEndTimeChange: function(e) {
     this.setData({endTime: e.detail.value})
 },
 bindAddressChange: function(e) {
-    this.setData({address: e.detail.value})
+  this.setData({ addressIndex: e.detail.value })
+  this.setData({ address: this.data.addressIndex})
 },
 bindTitleChange: function(e) {
     this.setData({title: e.detail.value})
