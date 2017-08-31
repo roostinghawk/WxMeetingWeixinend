@@ -9,8 +9,8 @@ Page({
     meetingDate: '',
     meetingTime: '',
     endTime: '',
-    address: 'Zoom-139',
-    addressArray: ['Zoom-139', 'Zoom-admin'],
+    address: '',
+    addressArray: [],
     addressIndex: 0, 
     currentDate: '',
     currentTime: '',
@@ -57,6 +57,26 @@ Page({
       startTime: hh + ':00',
       endTime: nextHour + ':00'
     });
+    
+    // 获取会议室列表
+    wx.request({
+      url: config.apiList.meetingRooms,
+      header: {
+        "token": app.globalData.token
+      },
+      success: function (res) {
+        var roomArray = [];
+        for(var index in res.data) {
+          roomArray.push(res.data[index].name);
+        }
+        that.setData({
+          addressArray: roomArray
+        })
+      },
+      fail: function (error) {
+      }
+    })
+
 
     // 获取发起人姓名
     wx.request({
@@ -84,7 +104,7 @@ bindEndTimeChange: function(e) {
 },
 bindAddressChange: function(e) {
   this.setData({ addressIndex: e.detail.value })
-  this.setData({ address: this.data.addressIndex})
+  this.setData({ address: this.data.addressArray[e.detail.value]})
 },
 bindTitleChange: function(e) {
     this.setData({title: e.detail.value})

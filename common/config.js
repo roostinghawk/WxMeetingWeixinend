@@ -8,6 +8,7 @@ module.exports = {
         meeting: 'https://liuanchen.com/w/meetings/',
         futureMeeting: 'https://liuanchen.com/w/meetings/future',
         todayMeeting: 'https://liuanchen.com/w/meetings/today',
-        getName: "https://liuanchen.com/w/users/name"
+        getName: "https://liuanchen.com/w/users/name",
+        meetingRooms: "https://liuanchen.com/w/meetingRooms"
     }
 }
