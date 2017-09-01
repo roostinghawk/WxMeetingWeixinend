@@ -59,3 +59,7 @@ label.title{
   width: 200rpx;
   height: 200rpx;
 }
+.roomList{
+  /* font-weight:bold;
+  text-align: center; */
+}

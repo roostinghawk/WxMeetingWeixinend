@@ -6,6 +6,15 @@
   </view>
 </view>-->
 
+<view class="row">
+  <picker bindchange="bindAddressChange" value="{{addressIndex}}" range="{{addressArray}}" class="picker roomList">
+    <view class="picker roomList">
+      {{addressArray[addressIndex]}}
+    </view>
+  </picker>
+  </view>
+
+
  <view class="section" wx:if="{{meetings.length > 0}}">
     <view wx:for="{{meetings}}">
        <view class= "meetingSection"> 

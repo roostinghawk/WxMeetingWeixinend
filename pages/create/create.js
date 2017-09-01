@@ -57,6 +57,8 @@ Page({
       startTime: hh + ':00',
       endTime: nextHour + ':00'
     });
+
+    that.showLoading();
     
     // 获取会议室列表
     wx.request({
@@ -72,8 +74,16 @@ Page({
         that.setData({
           addressArray: roomArray
         })
+        if (roomArray.length > 0) {
+          that.setData({
+            address: roomArray[0]
+          });
+        }
       },
       fail: function (error) {
+        that.setData({
+          errMsg: '获取会议室列表未成功'
+        })
       }
     })
 
@@ -90,8 +100,13 @@ Page({
         })
       },
       fail: function (error) {
+        that.setData({
+          errMsg: '获取发起人姓名未成功'
+        })
       }
     })
+
+    that.hideLoading();
 },
 bindDateChange: function(e) {
     this.setData({ meetingDate: e.detail.value})

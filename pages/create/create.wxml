@@ -60,7 +60,7 @@
     <!-- 发起人 -->
  <view class="row">
     <label>发起人员</label>
-    <input name="creatorName" placeholder="请输入姓名"   bindinput="bindCreatorNameChange" value="{{creatorName}}" maxlength="5" />
+    <input name="creatorName" placeholder="请输入姓名"   bindinput="bindCreatorNameChange" value="{{creatorName}}" maxlength="20" />
   </view>
 
 <view class="btn-section">

@@ -10,7 +10,9 @@ Page({
     meetingDate: '',
     meetingTime: '',
     endTime: '',
-    address: 'Zoom',
+    address: '',
+    addressArray: [],
+    addressIndex: 0, 
     currentDate: '',
     currentTime: '',
     title: '',
@@ -22,11 +24,37 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
+    that.showLoading();
     that.setData({ meetingId: options.id });
     if (!app.globalData.openid) {
       app.login(this.initData);
     } else {
-      this.initData();
+
+      // 获取会议室列表
+      wx.request({
+        url: config.apiList.meetingRooms,
+        header: {
+          "token": app.globalData.token
+        },
+        success: function (res) {
+          var roomArray = [];
+          for (var index in res.data) {
+            roomArray.push(res.data[index].name);
+          }
+          that.setData({
+            addressArray: roomArray
+          })
+          // 成功请求之后再取得当前数据
+          that.initData();
+        },
+        fail: function (error) {
+          that.setData({
+            errMsg: '获取会议室列表未成功'
+          })
+          that.hideLoading();
+        }
+      })
+
     }
   },
   bindDateChange: function (e) {
@@ -39,7 +67,8 @@ Page({
     this.setData({ endTime: e.detail.value })
   },
   bindAddressChange: function (e) {
-    this.setData({ address: e.detail.value })
+    this.setData({ addressIndex: e.detail.value })
+    this.setData({ address: this.data.addressArray[e.detail.value] })
   },
   bindTitleChange: function (e) {
     this.setData({ title: e.detail.value })
@@ -54,7 +83,6 @@ Page({
   // 初始化
   initData: function () {
     var that = this;
-    that.showLoading();
     // 获取会议详细
     wx.request({
       url: config.apiList.meeting + that.data.meetingId,
@@ -70,8 +98,20 @@ Page({
           meetingRoom: info.address,
           title: info.title,
           content: info.content,
-          creatorName: info.createdBy
+          creatorName: info.createdBy,
+          address: info.meetingRoom
         })
+
+        // 会议室下拉
+        var roomArray = that.data.addressArray;
+        for (var i = 0; i < roomArray.length; i++) {
+          if (roomArray[i] == info.meetingRoom) {
+            that.setData({
+              addressIndex: i 
+            });
+            break;
+          }
+        }
       },
       fail: function (error) {
         that.setData({
